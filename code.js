@@ -21,7 +21,7 @@ function quicksortIterative(arr, lo, hi)
     while(iteration < hi)
     {
         p = iteration;
-        if(arr[iteration] < arr[iteration + 1])
+        if(arr[iteration] > arr[iteration + 1])
         {
             //From Jon Bentley's quicksort algorithm from the slides
             for(let i = lo + 1; i <= hi; i++)
