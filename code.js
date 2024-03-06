@@ -16,18 +16,21 @@ function quicksortIterative(arr, lo, hi)
     {
         return arr;
     }
-    let p;
-    let iteration = lo;
+    let p = 0;
+    let iteration = 0;
     while(iteration < hi)
     {
         p = iteration;
         if(arr[iteration] > arr[iteration + 1])
         {
             //From Jon Bentley's quicksort algorithm from the slides
-            for(let i = lo + 1; i <= hi; i++)
+            for(i = lo + 1; i <= hi; i++)
             {
                 if(arr[i] < arr[lo])
-                { swap(arr, ++p, i); }
+                { 
+                    swap(arr, p+1, i); 
+                    p++;
+                }
             }
             swap(arr, lo, p);
             iteration = 0;
@@ -39,6 +42,7 @@ function quicksortIterative(arr, lo, hi)
     return arr;
 }
 
-function quicksort(array) {
+function quicksort(array) 
+{
     return quicksortIterative(array, 0, array.length-1);
 }
