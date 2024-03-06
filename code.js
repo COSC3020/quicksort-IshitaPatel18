@@ -1,6 +1,6 @@
 // I was stuck on what the if/else check was supposed to be after the while loop, 
-because I wasn't sure how it would repeat the iteration, so I got help from the
-repo of the ClaytonBrown4741 because I noticed our code was similar!
+// because I wasn't sure how it would repeat the iteration, so I got help from the
+// repo of the ClaytonBrown4741 because I noticed our code was similar!
 
 function swap(arr, first, second)
 {
@@ -16,8 +16,8 @@ function quicksortIterative(arr, lo, hi)
     {
         return arr;
     }
-    let p = 0;
-    let iteration = 0;
+    let p;
+    let iteration = lo;
     while(iteration < hi)
     {
         p = iteration;
@@ -27,10 +27,7 @@ function quicksortIterative(arr, lo, hi)
             for(i = lo + 1; i <= hi; i++)
             {
                 if(arr[i] < arr[lo])
-                { 
-                    swap(arr, p+1, i); 
-                    p++;
-                }
+                {swap(arr, ++p, i);}
             }
             swap(arr, lo, p);
             iteration = 0;
