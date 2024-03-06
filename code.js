@@ -40,5 +40,5 @@ function quicksortIterative(arr, lo, hi)
 }
 
 function quicksort(array) {
-    return quicksortIterative(arr, 0, arr.length-1);
+    return quicksortIterative(array, 0, array.length-1);
 }
