@@ -19,7 +19,8 @@ My answer:
 
 For the worst case scenario to occur, for this specific implementation, it would be 
 an input in reversed order because the pivot point is lo/the first element, so
-each element in the array would need to be moved. The for loop and the while loop 
-have an iteration that goes for the length of the input and because it is nested
-it will become $n^2$ as n number of elements have to move n amount of times. So the 
-$\Theta$ bound for worst case runtime is $\Theta(n^2)$.
+each element in the array would need to be moved. The swap function and calls, if checks, and
+variable initializations all take constant time. The for loop and the while loop 
+have an iteration that goes for the length of the input and because the loops are nested
+the runtime becomes $n^2$ as n number of elements have to move n amount of times and constants
+can be dropped for asymptotic complexity. So the $\Theta$ bound for worst case runtime is $\Theta(n^2)$.
