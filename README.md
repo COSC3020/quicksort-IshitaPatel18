@@ -14,3 +14,12 @@ recursive call considers.
 Analyse the time complexity of your implementation and give a $\Theta$ bound for
 its worst-case runtime. Add your answer, including your reasoning, to this
 markdown file.
+
+My answer:
+
+For the worst case scenario to occur, for this specific implementation, it would be 
+an input in reversed order because the pivot point is lo/the first element, so
+each element in the array would need to be moved. The for loop and the while loop 
+have an iteration that goes for the length of the input and because it is nested
+it will become $n^2$ as n number of elements have to move n amount of times. So the 
+$\Theta$ bound for worst case runtime is $\Theta(n^2)$.
