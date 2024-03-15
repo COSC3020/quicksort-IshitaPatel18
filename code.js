@@ -1,45 +1,58 @@
-// I was stuck on what the if/else check was supposed to be after the while loop, 
-// because I wasn't sure how it would repeat the iteration, so I got help from the
-// repo of the ClaytonBrown4741 because I noticed our code was similar!
-
-function swap(arr, first, second)
+function swap(arr, first, second) 
 {
-    let tmp = arr[first];
-    arr[first] = arr[second];
-    arr[second] = tmp;
-    return arr;
+  let tmp = arr[first];
+  arr[first] = arr[second];
+  arr[second] = tmp;
+  return arr;
 }
 
-function quicksortIterative(arr, lo, hi)
+// Partition is still from the slides
+function partition(arr, low, hi) 
 {
-    if(lo>=hi)
+  let pivot = low;
+  for (let i = low + 1; i <= hi; i++) 
+  {
+    if (arr[i] < arr[low]) 
     {
-        return arr;
+      swap(arr, ++pivot, i);
     }
-    let p;
-    let iteration = lo;
-    while(iteration < hi)
-    {
-        p = iteration;
-        if(arr[iteration] > arr[iteration + 1])
-        {
-            //From Jon Bentley's quicksort algorithm from the slides
-            for(i = lo + 1; i <= hi; i++)
-            {
-                if(arr[i] < arr[lo])
-                {swap(arr, ++p, i);}
-            }
-            swap(arr, lo, p);
-            iteration = 0;
-        }
-        else
-        { iteration++; }
-    }
-
-    return arr;
+  }
+  swap(arr, low, pivot);
+  return pivot;
 }
 
-function quicksort(array) 
+// I did have to use geeks for geeks for some help on the code below!
+
+function quicksort(arr)
 {
-    return quicksortIterative(array, 0, array.length-1);
+  if (arr.length <= 1) 
+  {
+    return arr;
+  }
+  let top = 0;
+  let low = 0;
+  let hi = arr.length - 1;
+  let stack = [];
+  stack[top] = low;
+  stack[++top] = hi;
+
+  while (top >= 0) 
+  {
+    hi = stack[top--];
+    low = stack[top--];
+
+    let pivot = partition(arr, low, hi);
+    if (pivot - 1 > low) 
+    {
+      stack[++top] = low;
+      stack[++top] = pivot - 1;
+    }
+
+    if (pivot + 1 < hi) 
+    {
+      stack[++top] = pivot + 1;
+      stack[++top] = hi;
+    }
+  }
+  return arr;
 }
